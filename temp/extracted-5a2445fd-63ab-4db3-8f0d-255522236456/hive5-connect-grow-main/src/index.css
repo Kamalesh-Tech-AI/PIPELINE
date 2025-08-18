@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* HIVE5 Design System - Purple Brand Identity */
+
+@layer base {
+  :root {
+    /* Core Brand Colors */
+    --background: 0 0% 100%;
+    --foreground: 210 24% 16%;
+
+    /* Purple Brand System */
+    --primary: 217 91% 60%;          /* HIVE5 Blue #3B82F6 */
+    --primary-light: 213 93% 68%;    /* Light Blue #60A5FA */
+    --primary-foreground: 0 0% 100%; /* White text on purple */
+    
+    /* Supporting Colors */
+    --secondary: 210 20% 96%;        /* Light Gray #F3F4F6 */
+    --secondary-foreground: 210 24% 16%;
+    
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 16% 47%;
+    
+    --accent: 217 91% 60%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Interactive Elements */
+    --card: 0 0% 100%;
+    --card-foreground: 210 24% 16%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 24% 16%;
+    
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 217 91% 60%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Design System Tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(213 93% 68%));
+    --gradient-hero: linear-gradient(135deg, hsl(217 91% 60% / 0.1), hsl(213 93% 68% / 0.05));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 20% 98%));
+    
+    --shadow-elegant: 0 10px 30px -10px hsl(217 91% 60% / 0.2);
+    --shadow-card: 0 4px 20px -4px hsl(210 24% 16% / 0.08);
+    --shadow-glow: 0 0 40px hsl(217 91% 60% / 0.3);
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    /* Dark mode optimization for HIVE5 */
+    --background: 210 24% 8%;
+    --foreground: 0 0% 98%;
+    
+    --primary: 213 93% 68%;
+    --primary-foreground: 210 24% 8%;
+    
+    --card: 210 24% 10%;
+    --card-foreground: 0 0% 98%;
+    
+    --secondary: 210 24% 12%;
+    --secondary-foreground: 0 0% 98%;
+    
+    --muted: 210 24% 12%;
+    --muted-foreground: 215 16% 65%;
+    
+    --border: 210 24% 20%;
+    --input: 210 24% 20%;
+    --ring: 213 93% 68%;
+    
+    --gradient-primary: linear-gradient(135deg, hsl(213 93% 68%), hsl(217 91% 65%));
+    --gradient-hero: linear-gradient(135deg, hsl(213 93% 68% / 0.1), hsl(217 91% 65% / 0.05));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* HIVE5 Component Styles */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  .gradient-text {
+    background: var(--gradient-primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .card-elegant {
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+    border: 1px solid hsl(var(--border));
+  }
+  
+  .btn-hover-lift {
+    transition: var(--transition-smooth);
+  }
+  
+  .btn-hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-elegant);
+  }
+  
+  .floating-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Logo optimization styles */
+.logo-container img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+/* Payment method styles */
+.payment-method-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .payment-method-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .payment-method-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
