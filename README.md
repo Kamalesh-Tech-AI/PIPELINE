@@ -239,6 +239,6 @@ MIT - See LICENSE file for details
 4. Ensure security tests pass
 5. Submit a pull request
 
-## Security Reporting
+## Security Reporting files
 
 Report security vulnerabilities privately to security@example.com
